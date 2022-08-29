@@ -14,23 +14,25 @@ import {
 
 import todoComponent from "./domComponents/todoItemComponent";
 import homeProjectsArray from "./projectData";
-console.log(homeProjectsArray);
+
+import {
+  toggleDisplay,
+  openWindow,
+  closeWindow,
+} from "./domComponents/utilityFunctions";
 
 addTaskButton.addEventListener("click", () => {
-  homeProjects.addTask({
+  homeProject.addTask({
     title: "New Tack Here",
     details: "new Dummny Task",
     priority: "High",
     dueDate: "13/10/4408",
     complete: false,
+    project: "home",
   });
 });
 
-// editButton.addEventListener("click", () => {
-//   console.log("Heoo,");
-// });
-
-class Projects {
+class Project {
   constructor(arrayOfTodos) {
     this.arrayOfTodos = arrayOfTodos;
   }
@@ -46,10 +48,14 @@ class Projects {
   addTask(object) {
     this.arrayOfTodos.push(object);
     todoContent.innerHTML = "";
+    // toggleDisplay(overlay, editWindow);
+    openWindow(editWindow);
     this.displayTasks();
   }
+
+  addNewTaskWindow() {}
   //   editTask() {}
 }
 
-const homeProjects = new Projects(homeProjectsArray);
-homeProjects.displayTasks();
+const homeProject = new Project(homeProjectsArray);
+homeProject.displayTasks();

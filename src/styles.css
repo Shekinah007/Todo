@@ -130,6 +130,10 @@ nav {
     gap: 30px;
 }
 
+textarea {
+    resize: none;
+}
+
 .date {
     font-size: 13px;
     font-weight: 800;

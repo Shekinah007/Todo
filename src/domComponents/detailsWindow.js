@@ -1,4 +1,6 @@
-import { overlay, detailsWindow } from "./getElements";
+import { detailsWindow } from "./getElements";
+
+import { closeWindow } from "./utilityFunctions";
 
 const body = document.querySelector("body");
 
@@ -18,13 +20,8 @@ function detailsComponent(titleText, details, priority, dueDate) {
   description.classList.add("details-description");
   description.innerText = details;
 
-  function toggleDisplay(overlay, target) {
-    overlay.classList.toggle("display-none");
-    target.classList.toggle("display-none");
-  }
-
   closeButton.addEventListener("click", () => {
-    toggleDisplay(overlay, detailsWindow);
+    closeWindow(detailsWindow);
   });
 
   container.append(closeButton, title, description);
